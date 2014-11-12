@@ -6,6 +6,6 @@
     android:maxHeight="250dp"
     android:maxWidth="250dp"
     android:scaleType="fitCenter"
-    android:src="@drawable/test" >
+    android:src="@drawable/moverlogo" >
 
 </ImageView>
