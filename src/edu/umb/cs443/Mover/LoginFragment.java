@@ -16,20 +16,18 @@ public class LoginFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_login,
 				container, false);
 		
-		Button create = (Button) view.findViewById(R.id.create_button);
-		Button login = (Button) view.findViewById(R.id.login_button);
-
-		final Fragment frag = new CreateAccountFragment();
-		final Fragment buttons = new StartButtonsFragment();
-		final Fragment loginFrag = new LoginFragment();
+		Button login = (Button) view.findViewById(R.id.login_submit);
+		
+		final Fragment homeFrag = new HomeFragment();
+		final Fragment buttons  = new StartButtonsFragment();
 
 		final FragmentManager fm = getActivity().getSupportFragmentManager();
 		final FragmentTransaction ft = fm.beginTransaction();
-		
-		/*create.setOnClickListener(new View.OnClickListener() {
+
+		login.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				ft.replace(R.id.top_fragment, frag);
+				ft.replace(R.id.top_fragment, homeFrag);
 				ft.replace(R.id.bottom_fragment, buttons);
 				ft.remove(buttons);
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -37,16 +35,6 @@ public class LoginFragment extends Fragment {
 				ft.commit();
 			}
 		});
-
-		login.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				ft.replace(R.id.top_fragment, loginFrag);
-				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-				ft.addToBackStack(null);
-				ft.commit();
-			}
-		});*/
 		return view;
 	}
 }

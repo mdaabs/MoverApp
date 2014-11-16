@@ -7,7 +7,8 @@
         android:id="@+id/username_login"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:background="#003399"
         android:gravity="center"
         android:hint="@string/username_hint"
@@ -18,8 +19,8 @@
         android:id="@+id/password_login"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_marginBottom="20dp"
         android:layout_below="@id/username_login"
+        android:layout_marginBottom="7dp"
         android:background="#003399"
         android:fontFamily="sans-serif"
         android:gravity="center"
@@ -27,25 +28,16 @@
         android:inputType="textPassword"
         android:textColor="#FFFFFF" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/login_submit"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="20dp"
-        android:layout_below="@id/password_login"
-        android:weightSum="2" >
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password_login" />
 
-        <TextView 
-            android:id="@+id/login_text"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-        
-        <Button
-            android:id="@+id/login_submit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-        
-    </LinearLayout>
+    <TextView
+        android:id="@+id/login_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_submit" />
 
 </RelativeLayout>

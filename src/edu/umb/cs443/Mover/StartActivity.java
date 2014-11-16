@@ -51,4 +51,13 @@ public class StartActivity extends FragmentActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public void onBackPressed() {
+	    if (getFragmentManager().getBackStackEntryCount() == 0) {
+	        super.onBackPressed();
+	    } else {
+	        getFragmentManager().popBackStack();
+	    }
+	}
 }

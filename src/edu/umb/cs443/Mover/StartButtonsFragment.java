@@ -20,9 +20,10 @@ public class StartButtonsFragment extends Fragment {
 		Button create = (Button) rootView.findViewById(R.id.create_button);
 		Button login = (Button) rootView.findViewById(R.id.login_button);
 
-		final Fragment frag = new CreateAccountFragment();
+		final Fragment createFrag = new CreateAccountFragment();
 		final Fragment buttons = new StartButtonsFragment();
 		final Fragment loginFrag = new LoginFragment();
+		final Fragment logoFrag = new LogoFragment();
 
 		final FragmentManager fm = getActivity().getSupportFragmentManager();
 		final FragmentTransaction ft = fm.beginTransaction();
@@ -30,7 +31,7 @@ public class StartButtonsFragment extends Fragment {
 		create.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				ft.replace(R.id.top_fragment, frag);
+				ft.replace(R.id.top_fragment, createFrag);
 				ft.replace(R.id.bottom_fragment, buttons);
 				ft.remove(buttons);
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -42,8 +43,8 @@ public class StartButtonsFragment extends Fragment {
 		login.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				ft.replace(R.id.top_fragment, loginFrag);
-				ft.replace(R.id.bottom_fragment, buttons);
+				ft.replace(R.id.top_fragment, logoFrag);
+				ft.replace(R.id.bottom_fragment, loginFrag);
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 				ft.addToBackStack(null);
 				ft.commit();
