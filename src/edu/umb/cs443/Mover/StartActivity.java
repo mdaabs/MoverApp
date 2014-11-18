@@ -15,7 +15,7 @@ public class StartActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		ActionBar actionBar = getActionBar();
-		actionBar.hide();
+		/*actionBar.hide();*/
 		setContentView(R.layout.activity_start);
 		/*if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()

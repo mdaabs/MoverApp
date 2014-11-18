@@ -3,8 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:adjustViewBounds="true"
-    android:maxHeight="215dp"
-    android:maxWidth="250dp"
+    android:maxHeight="150dp"
+    android:maxWidth="150dp"
+    android:layout_marginTop="10dp"
     android:scaleType="fitCenter"
     android:src="@drawable/moverlogo" >
 
