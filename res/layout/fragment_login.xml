@@ -12,8 +12,7 @@
         android:background="#003399"
         android:gravity="center"
         android:hint="@string/username_hint"
-        android:inputType="text"
-        android:textColor="#FFFFFF" />
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/password_login"
@@ -25,8 +24,7 @@
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:hint="@string/password_hint"
-        android:inputType="textPassword"
-        android:textColor="#FFFFFF" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/login_submit"

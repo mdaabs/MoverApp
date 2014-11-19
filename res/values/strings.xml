@@ -17,6 +17,7 @@
     <string name="welcome">Welcome Home, Mario!</string>
     <string name="search_hint">Enter Your Zip Code to Search...</string>
     <string name="my_profile">Touch to View/Edit</string>
+    <string name="vehicle">Vehicle Type</string>
     <color name="black">#000000</color>
     
 

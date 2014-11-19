@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/profile_top_frame"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:background="@drawable/profile_border"
+            android:src="@drawable/moverlogo" />
+
+        <TextView
+            android:id="@+id/profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignTop="@id/profile_pic"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/profile_pic"
+            android:layout_marginBottom="5dp"
+            android:text="Mario Daaboul"
+            android:textSize="18sp" />
+        <!-- text going to be taken from database -->
+
+        <TextView
+            android:id="@+id/profile_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/profile_name"
+            android:layout_below="@id/profile_name"
+            android:text="Resides in Boston, MA" />
+        <!-- text going to be taken from database -->
+
+        <TextView
+            android:id="@+id/profile_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/profile_name"
+            android:layout_below="@id/profile_area"
+            android:text="888-888-8888" />
+        <!-- text going to be taken from database -->
+
+        <TextView
+            android:id="@+id/profile_vehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/profile_pic"
+            android:layout_alignLeft="@+id/profile_name"
+            android:text="Truck"
+            android:textSize="15sp" />
+        <!-- text going to be taken from database -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/profile_vehicle"
+            android:layout_alignLeft="@id/profile_name"
+            android:text="@string/vehicle"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+</FrameLayout>
