@@ -18,6 +18,8 @@
     <string name="search_hint">Enter Your Zip Code to Search...</string>
     <string name="my_profile">Touch to View/Edit</string>
     <string name="vehicle">Vehicle Type</string>
+    <string name="information">Information</string>
+    <string name="info_hint">Anything you want the viewer to know (good times, about you, etc)</string>
     <color name="black">#000000</color>
     
 
