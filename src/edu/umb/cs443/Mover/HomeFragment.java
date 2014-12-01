@@ -23,9 +23,9 @@ public class HomeFragment extends Fragment {
 
 		search = (EditText) view.findViewById(R.id.search_movers);
 		profile = (ImageButton) view.findViewById(R.id.search_profile_pic);
-		
+
 		final Fragment profileFrag = new ProfileFragment();
-		
+
 		final FragmentManager fm = getActivity().getSupportFragmentManager();
 		final FragmentTransaction ft = fm.beginTransaction();
 
@@ -48,12 +48,12 @@ public class HomeFragment extends Fragment {
 
 			@Override
 			public void onClick(View arg0) {
-				
+
 				ft.replace(R.id.top_fragment, profileFrag);
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 				ft.addToBackStack(null);
 				ft.commit();
-				
+
 			}
 		});
 

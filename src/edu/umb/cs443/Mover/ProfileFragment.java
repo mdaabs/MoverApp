@@ -2,6 +2,8 @@ package edu.umb.cs443.Mover;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,8 +30,17 @@ public class ProfileFragment extends Fragment {
 	}
 	
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item) {	
+		final Fragment home = new HomeFragment();
+		
+		final FragmentManager fm = getActivity().getSupportFragmentManager();
+		final FragmentTransaction ft = fm.beginTransaction();
+		
 		int id = item.getItemId();
+		if (id == R.id.back) {
+			getActivity().onBackPressed();
+			return true;
+		}
 		return super.onOptionsItemSelected(item);
 	}
 	
@@ -37,7 +48,7 @@ public class ProfileFragment extends Fragment {
 	public void onPrepareOptionsMenu(Menu menu) {
 	    super.onPrepareOptionsMenu(menu);
 
-	    MenuItem profile  = menu.findItem(R.id.edit_profile);
+	    MenuItem profile  = menu.findItem(R.id.back);
 	    profile.setVisible(true);
 
 	}

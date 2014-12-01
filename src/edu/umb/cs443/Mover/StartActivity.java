@@ -56,8 +56,10 @@ public class StartActivity extends FragmentActivity {
 	public boolean onPrepareOptionsMenu(Menu menu) {
 	    super.onPrepareOptionsMenu(menu);
 
-	    MenuItem profile  = menu.findItem(R.id.edit_profile);
+	    MenuItem profile = menu.findItem(R.id.back);
+	    MenuItem done = menu.findItem(R.id.edit_done);
 	    profile.setVisible(false);
+	    done.setVisible(false);
 	    
 	    return true;
 	}

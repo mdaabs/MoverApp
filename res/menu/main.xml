@@ -4,9 +4,15 @@
     tools:context="edu.umb.cs443.Mover.MainActivity" >
     
     <item 
-        android:id="@+id/edit_profile"
-        android:title="Edit"
-        android:text="Edit" 
+        android:id="@+id/back"
+        android:title="Back"
+        android:text="Back" 
+        android:showAsAction="ifRoom"/>
+    
+    <item 
+        android:id="@+id/edit_done"
+        android:title="Done"
+        android:text="Done"
         android:showAsAction="ifRoom"/>
 
 </menu>

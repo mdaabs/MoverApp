@@ -1099,6 +1099,7 @@ containing a value of this type.
         public static final int action_mode_close_button=0x7f050024;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
+        public static final int back=0x7f050052;
         public static final int beginning=0x7f050011;
         public static final int bottom_fragment=0x7f05003d;
         public static final int checkbox=0x7f05002d;
@@ -1108,7 +1109,7 @@ containing a value of this type.
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
         public static final int dropdown=0x7f05000f;
-        public static final int edit_profile=0x7f050052;
+        public static final int edit_done=0x7f050053;
         public static final int edit_query=0x7f050030;
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;

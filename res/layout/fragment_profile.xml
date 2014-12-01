@@ -22,7 +22,7 @@
                 android:background="@drawable/profile_border"
                 android:src="@drawable/moverlogo" />
 
-            <TextView
+            <EditText
                 android:id="@+id/profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -32,7 +32,9 @@
                 android:layout_marginLeft="15dp"
                 android:layout_toRightOf="@id/profile_pic"
                 android:text="Mario Daaboul"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:background="@null"
+                android:inputType="textNoSuggestions" />
             <!-- text going to be taken from database -->
 
             <TextView
