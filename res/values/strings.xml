@@ -14,12 +14,14 @@
     <string name="account_creation">Account Creation</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
+    <string name="login_submit">Login!</string>
     <string name="welcome">Welcome Home, Mario!</string>
     <string name="search_hint">Enter Your Zip Code to Search...</string>
     <string name="my_profile">Touch to View/Edit</string>
     <string name="vehicle">Vehicle Type</string>
     <string name="information">Information</string>
     <string name="info_hint">Anything you want the viewer to know (good times, about you, etc)</string>
+    <string name="search_movers">Search for Movers</string>
     <color name="black">#000000</color>
     
 

@@ -30,7 +30,8 @@
         android:id="@+id/login_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password_login" />
+        android:layout_below="@id/password_login"
+        android:text="@string/login_submit" />
 
     <TextView
         android:id="@+id/login_text"

@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -16,6 +18,7 @@ public class HomeFragment extends Fragment {
 
 	EditText search;
 	ImageButton profile;
+	Button movers;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -23,8 +26,10 @@ public class HomeFragment extends Fragment {
 
 		search = (EditText) view.findViewById(R.id.search_movers);
 		profile = (ImageButton) view.findViewById(R.id.search_profile_pic);
+		movers = (Button) view.findViewById(R.id.search_zip);
 
 		final Fragment profileFrag = new ProfileFragment();
+		final Fragment results = new ResultsFragment();
 
 		final FragmentManager fm = getActivity().getSupportFragmentManager();
 		final FragmentTransaction ft = fm.beginTransaction();
@@ -38,7 +43,8 @@ public class HomeFragment extends Fragment {
 						.makeText(
 								getActivity(),
 								"Movers are found within the area of the entered zip code.",
-								Toast.LENGTH_LONG);
+								9000);
+				msg.setGravity(Gravity.CENTER_VERTICAL, 0, 40);
 				msg.show();
 
 			}
@@ -50,6 +56,19 @@ public class HomeFragment extends Fragment {
 			public void onClick(View arg0) {
 
 				ft.replace(R.id.top_fragment, profileFrag);
+				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+				ft.addToBackStack(null);
+				ft.commit();
+
+			}
+		});
+
+		movers.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				ft.replace(R.id.top_fragment, results);
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 				ft.addToBackStack(null);
 				ft.commit();
