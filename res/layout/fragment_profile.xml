@@ -105,16 +105,17 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/information"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/info_text"
-                    android:layout_marginTop="5dp"
                     android:background="@null"
                     android:inputType="textNoSuggestions"
                     android:maxLength="200"
                     android:paddingBottom="15dp"
                     android:text="This is my bio"
                     android:textSize="14sp" />
+                
             </RelativeLayout>
         </FrameLayout>
 
@@ -138,12 +139,14 @@
                     android:text="Testimonials"
                     android:textSize="18sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/testimonials"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/testimonial_text"
-                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:inputType="textNoSuggestions"
+                    android:textSize="14sp"
                     android:text="placeholder; waiting for database to implement" />
                 
             </RelativeLayout>

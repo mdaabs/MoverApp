@@ -34,6 +34,7 @@ public class StartActivity extends FragmentActivity {
 		transaction.add(R.id.bottom_fragment, mFragmentStart);
 		transaction.add(R.id.top_fragment, mFragmentLogo);
 		transaction.commit();
+		
 	}
 
 	@Override

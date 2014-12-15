@@ -41,6 +41,7 @@ public class ProfileFragment extends Fragment {
 			getActivity().onBackPressed();
 			return true;
 		}
+		
 		return super.onOptionsItemSelected(item);
 	}
 	
