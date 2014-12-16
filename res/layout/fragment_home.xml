@@ -36,7 +36,8 @@
         android:layout_below="@id/welcome_home"
         android:gravity="center"
         android:hint="@string/search_hint"
-        android:inputType="number" />
+        android:inputType="number"
+        android:maxLength="5" />
     
     <Button 
         android:id="@+id/search_zip"

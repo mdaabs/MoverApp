@@ -27,6 +27,11 @@ public class MoverDBAdapter {
 		return this;
 	}
 
+	public MoverDBAdapter openToRead() throws android.database.SQLException {
+		db = dbHelper.getReadableDatabase();
+		return this;
+	}
+
 	public void close() {
 		db.close();
 	}
@@ -49,8 +54,40 @@ public class MoverDBAdapter {
 		db.insert(MoverDB.TABLE_NAME, null, values);
 	}
 
-	public String getAccountPass(String user) {
+	public void insertInfo(String info) {
+		ContentValues values = new ContentValues();
 
+		values.put(MoverDB.COLUMN_NAME_PROFILE_BIO, info);
+
+		db.insert(MoverDB.TABLE_NAME, null, values);
+	}
+
+	public void updateInfo(String info, String user) {
+
+		ContentValues updated = new ContentValues();
+
+		updated.put(MoverDB.COLUMN_NAME_PROFILE_BIO, info);
+
+		String selection = MoverDB.COLUMN_NAME_USERNAME + " LIKE ?";
+		db.update(MoverDB.TABLE_NAME, updated, selection, new String[] { user });
+	}
+
+	public String getUser(String user) {
+		Cursor cursor = db.query(MoverDB.TABLE_NAME, null,
+				MoverDB.COLUMN_NAME_USERNAME + "=?", new String[] { user },
+				null, null, null);
+		if (cursor.getCount() < 1) {
+			cursor.close();
+			return "DOES NOT EXIST";
+		}
+		cursor.moveToFirst();
+		String username = cursor.getString(cursor
+				.getColumnIndex(MoverDB.COLUMN_NAME_USERNAME));
+		cursor.close();
+		return username;
+	}
+
+	public String getAccountPass(String user) {
 		Cursor cursor = db.query(MoverDB.TABLE_NAME, null,
 				MoverDB.COLUMN_NAME_USERNAME + "=?", new String[] { user },
 				null, null, null);
@@ -66,7 +103,6 @@ public class MoverDBAdapter {
 	}
 
 	public String getFirstName(String user) {
-
 		Cursor cursor = db.query(MoverDB.TABLE_NAME, null,
 				MoverDB.COLUMN_NAME_USERNAME + "=?", new String[] { user },
 				null, null, null);
@@ -80,7 +116,7 @@ public class MoverDBAdapter {
 		cursor.close();
 		return fName;
 	}
-	
+
 	public String getLastName(String user) {
 		Cursor cursor = db.query(MoverDB.TABLE_NAME, null,
 				MoverDB.COLUMN_NAME_USERNAME + "=?", new String[] { user },
@@ -95,7 +131,7 @@ public class MoverDBAdapter {
 		cursor.close();
 		return lName;
 	}
-	
+
 	public String getZip(String user) {
 		Cursor cursor = db.query(MoverDB.TABLE_NAME, null,
 				MoverDB.COLUMN_NAME_USERNAME + "=?", new String[] { user },
@@ -110,7 +146,7 @@ public class MoverDBAdapter {
 		cursor.close();
 		return zip;
 	}
-	
+
 	public String getVehicle(String user) {
 		Cursor cursor = db.query(MoverDB.TABLE_NAME, null,
 				MoverDB.COLUMN_NAME_USERNAME + "=?", new String[] { user },
@@ -124,5 +160,32 @@ public class MoverDBAdapter {
 				.getColumnIndex(MoverDB.COLUMN_NAME_PROFILE_VEHICLE));
 		cursor.close();
 		return vehicle;
+	}
+
+	public String getInfo(String user) {
+		Cursor cursor = db.query(MoverDB.TABLE_NAME, null,
+				MoverDB.COLUMN_NAME_USERNAME + "=?", new String[] { user },
+				null, null, null);
+		if (cursor.getCount() < 1) {
+			cursor.close();
+			return "N/A";
+		}
+		cursor.moveToFirst();
+		String info = cursor.getString(cursor
+				.getColumnIndex(MoverDB.COLUMN_NAME_PROFILE_BIO));
+		cursor.close();
+		return info;
+	}
+
+	public Cursor createCursor(String zip) {
+
+		Cursor c = db.query(MoverDB.TABLE_NAME, new String[] {
+				MoverDB.COLUMN_NAME_FIRST_NAME, MoverDB.COLUMN_NAME_USERNAME,
+				MoverDB.COLUMN_NAME_PROFILE_VEHICLE,
+				MoverDB.COLUMN_NAME_PROFILE_ZIP },
+				MoverDB.COLUMN_NAME_PROFILE_ZIP + "=?", new String[] { zip }, null,
+				null, null);
+
+		return c;
 	}
 }

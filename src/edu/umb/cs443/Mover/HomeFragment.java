@@ -1,5 +1,8 @@
 package edu.umb.cs443.Mover;
 
+import android.app.AlertDialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +20,7 @@ import android.widget.Toast;
 
 public class HomeFragment extends Fragment {
 
+	public static String zipSearch;
 	EditText search, mUser;
 	ImageButton profile;
 	Button movers;
@@ -41,7 +45,7 @@ public class HomeFragment extends Fragment {
 		
 		adapter.open();
 		
-		String user = LoginFragment.u;
+		String user = LoginFragment.myUser;
 		
 		String first = adapter.getFirstName(user);
 		welcome.setText("Welcome Home, " + first + "!");
@@ -81,12 +85,35 @@ public class HomeFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-
+				
+				String sSearch = search.getText().toString();
+				if (sSearch.isEmpty()) {
+					
+					AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+					dialog.setMessage("Zip code field is empty.");
+					dialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							
+							dialog.dismiss();
+							return;
+							
+						}
+					});
+					
+					dialog.show();
+					
+				}
+				else {
 				ft.replace(R.id.top_fragment, results);
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 				ft.addToBackStack(null);
 				ft.commit();
-
+				
+				zipSearch = sSearch;
+				
+				}
 			}
 		});
 

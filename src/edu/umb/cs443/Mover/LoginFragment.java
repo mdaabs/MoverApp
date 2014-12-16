@@ -1,6 +1,8 @@
 package edu.umb.cs443.Mover;
 
+import android.app.AlertDialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,8 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginFragment extends Fragment {
-	
-	public static String u;
+
+	public static String myUser;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -37,26 +39,55 @@ public class LoginFragment extends Fragment {
 			public void onClick(View v) {
 
 				adapter.open();
-				
+
 				String user = mUser.getText().toString();
 				String pass = mPass.getText().toString();
 				String dbPass = adapter.getAccountPass(user);
 
 				if (!dbPass.equals(pass)) {
 
-					DialogFragment msg = new CreateFailedDialogFragment();
-					msg.show(getActivity().getFragmentManager(), "failed");
-
-				} else {
+					AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+					dialog.setMessage("Username and/or password are incorrect.");
+					dialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							
+							dialog.dismiss();
+							return;
+							
+						}
+					});
 					
+					dialog.show();
+
+				} else if (user.isEmpty() || pass.isEmpty()) {
+
+					AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+					dialog.setMessage("One or more Fields  are empty.");
+					dialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							
+							dialog.dismiss();
+							return;
+							
+						}
+					});
+					
+					dialog.show();
+					
+				} else {
+
 					ft.replace(R.id.top_fragment, homeFrag);
 					ft.replace(R.id.bottom_fragment, buttons);
 					ft.remove(buttons);
 					ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 					ft.addToBackStack(null);
 					ft.commit();
-					
-					u = user;
+
+					myUser = user;
 				}
 				adapter.close();
 			}

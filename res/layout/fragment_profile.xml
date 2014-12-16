@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/profile_name"
                     android:layout_below="@id/profile_name"
-                    android:text="Resides in:"
+                    android:text="Location:"
                     android:textSize="17sp" />
 
                 <TextView
@@ -104,7 +104,6 @@
                     android:inputType="textNoSuggestions"
                     android:maxLength="200"
                     android:paddingBottom="15dp"
-                    android:text="This is my bio"
                     android:textSize="14sp" />
                 <!-- taken from db -->
                 
@@ -114,7 +113,7 @@
         <FrameLayout
             android:id="@+id/profile_testimonials_frame"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:layout_below="@id/profile_info_frame"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -143,6 +142,16 @@
                 
             </RelativeLayout>
         </FrameLayout>
+        
+        <Button 
+            android:id="@+id/profile_submit"
+            android:layout_below="@id/profile_testimonials_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="Finished"/>
     </RelativeLayout>
 
 </ScrollView>

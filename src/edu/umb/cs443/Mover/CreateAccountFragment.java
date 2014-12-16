@@ -1,7 +1,9 @@
 package edu.umb.cs443.Mover;
 
+import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -53,15 +55,58 @@ public class CreateAccountFragment extends Fragment {
 
 				if (!confirm.equals(pass)) {
 
-					DialogFragment msg = new CreateFailedDialogFragment();
-					msg.show(getActivity().getFragmentManager(), "failed");
+					AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+					dialog.setMessage("Confirm password and password field must match.");
+					dialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							
+							dialog.dismiss();
+							return;
+							
+						}
+					});
+					
+					dialog.show();
+
+				} else if (user.isEmpty() || pass.isEmpty()
+						|| confirm.isEmpty() || first.isEmpty()
+						|| last.isEmpty() || zip.isEmpty() || vehicle.isEmpty()) {
+					
+					AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+					dialog.setMessage("One or more fields are empty.");
+					dialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							
+							dialog.dismiss();
+							return;
+							
+						}
+					});
+					
+					dialog.show();
 
 				} else {
 
 					adapter.insertAccount(user, pass, first, last, zip, vehicle);
 
-					DialogFragment suc = new CreateSuccessDialogFragment();
-					suc.show(getActivity().getFragmentManager(), "success");
+					AlertDialog dialog = new AlertDialog.Builder(getActivity()).create();
+					dialog.setMessage("Account Created!");
+					dialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							
+							dialog.dismiss();
+							return;
+							
+						}
+					});
+					
+					dialog.show();
 				}
 				adapter.close();
 			}
