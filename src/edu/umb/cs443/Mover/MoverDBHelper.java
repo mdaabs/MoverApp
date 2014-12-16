@@ -1,9 +1,11 @@
 package edu.umb.cs443.Mover;
 
-import edu.umb.cs443.Mover.MoverDBContract.MoverDB;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import edu.umb.cs443.Mover.MoverDBContract.MoverDB;
 
 public class MoverDBHelper extends SQLiteOpenHelper {
 	// If you change the database schema, you must increment the database
@@ -18,10 +20,11 @@ public class MoverDBHelper extends SQLiteOpenHelper {
 			+ MoverDB.TABLE_NAME + " (" + MoverDB._ID + " INTEGER PRIMARY KEY,"
 			+ MoverDB.COLUMN_NAME_USERNAME + TEXT_TYPE + COMMA_SEP
 			+ MoverDB.COLUMN_NAME_PASSWORD + TEXT_TYPE + COMMA_SEP
-			+ MoverDB.COLUMN_NAME_PROFILE_NAME + TEXT_TYPE + COMMA_SEP
+			+ MoverDB.COLUMN_NAME_FIRST_NAME + TEXT_TYPE + COMMA_SEP
+			+ MoverDB.COLUMN_NAME_LAST_NAME + TEXT_TYPE + COMMA_SEP
 			+ MoverDB.COLUMN_NAME_PROFILE_ZIP + TEXT_TYPE + COMMA_SEP
 			+ MoverDB.COLUMN_NAME_PROFILE_VEHICLE + TEXT_TYPE + COMMA_SEP
-			+ MoverDB.COLUMN_NAME_PROFILE_BIO + TEXT_TYPE + COMMA_SEP + " )";
+			+ MoverDB.COLUMN_NAME_PROFILE_BIO + TEXT_TYPE + ")";
 
 	private static final String DATABASE_DELETE = "DROP TABLE IF EXISTS "
 			+ MoverDB.TABLE_NAME;

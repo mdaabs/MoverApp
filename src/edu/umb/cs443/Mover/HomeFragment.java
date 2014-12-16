@@ -12,13 +12,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeFragment extends Fragment {
 
-	EditText search;
+	EditText search, mUser;
 	ImageButton profile;
 	Button movers;
+	MoverDBAdapter adapter;
+	TextView welcome;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -27,12 +30,23 @@ public class HomeFragment extends Fragment {
 		search = (EditText) view.findViewById(R.id.search_movers);
 		profile = (ImageButton) view.findViewById(R.id.search_profile_pic);
 		movers = (Button) view.findViewById(R.id.search_zip);
+		adapter = new MoverDBAdapter(getActivity());
+		welcome = (TextView) view.findViewById(R.id.welcome_home);
 
 		final Fragment profileFrag = new ProfileFragment();
 		final Fragment results = new ResultsFragment();
 
 		final FragmentManager fm = getActivity().getSupportFragmentManager();
 		final FragmentTransaction ft = fm.beginTransaction();
+		
+		adapter.open();
+		
+		String user = LoginFragment.u;
+		
+		String first = adapter.getFirstName(user);
+		welcome.setText("Welcome Home, " + first + "!");
+		
+		adapter.close();
 
 		search.setOnClickListener(new OnClickListener() {
 
@@ -78,5 +92,4 @@ public class HomeFragment extends Fragment {
 
 		return view;
 	}
-
 }

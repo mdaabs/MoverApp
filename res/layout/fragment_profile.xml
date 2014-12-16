@@ -15,7 +15,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp" >
 
-            <RelativeLayout
+           <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
@@ -26,7 +26,7 @@
                     android:background="@drawable/profile_border"
                     android:src="@drawable/moverlogo" />
 
-                <EditText
+                <TextView
                     android:id="@+id/profile_name"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
@@ -36,10 +36,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_toRightOf="@id/profile_pic"
                     android:background="@null"
-                    android:inputType="textNoSuggestions"
-                    android:text="Mario Daaboul"
                     android:textSize="18sp" />
-                <!-- text going to be taken from database -->
 
                 <TextView
                     android:id="@+id/profile_area_text"
@@ -50,29 +47,23 @@
                     android:text="Resides in:"
                     android:textSize="17sp" />
 
-                <EditText
+                <TextView
                     android:id="@+id/profile_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/profile_name"
                     android:layout_below="@id/profile_area_text"
                     android:background="@null"
-                    android:inputType="textNoSuggestions"
-                    android:text="02478"
                     android:textSize="13sp" />
-                <!-- text going to be taken from database -->
 
-                <EditText
+                <TextView
                     android:id="@+id/profile_vehicle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/profile_pic"
                     android:layout_alignLeft="@+id/profile_name"
                     android:background="@null"
-                    android:inputType="textNoSuggestions"
-                    android:text="Truck"
                     android:textSize="13sp" />
-                <!-- text going to be taken from database -->
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -115,6 +106,7 @@
                     android:paddingBottom="15dp"
                     android:text="This is my bio"
                     android:textSize="14sp" />
+                <!-- taken from db -->
                 
             </RelativeLayout>
         </FrameLayout>

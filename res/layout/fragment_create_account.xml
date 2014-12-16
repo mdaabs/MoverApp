@@ -43,6 +43,51 @@
         android:inputType="textPassword"
         android:fontFamily="sans-serif" />
     
+    <EditText
+        android:id="@+id/first_name"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:hint="First Name"
+        android:gravity="center"
+        android:background="#003399"
+        android:layout_marginBottom="20dp"
+        android:inputType="textCapWords"
+        android:fontFamily="sans-serif" />
+    
+    <EditText
+        android:id="@+id/last_name"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:hint="Last Name"
+        android:gravity="center"
+        android:background="#003399"
+        android:layout_marginBottom="20dp"
+        android:inputType="textCapWords"
+        android:fontFamily="sans-serif" />
+    
+    <EditText
+        android:id="@+id/create_zip"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:hint="Last Name"
+        android:gravity="center"
+        android:background="#003399"
+        android:layout_marginBottom="20dp"
+        android:inputType="number"
+        android:maxLength="5"
+        android:fontFamily="sans-serif" />
+    
+    <EditText
+        android:id="@+id/create_vehicle"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:hint="Last Name"
+        android:gravity="center"
+        android:background="#003399"
+        android:layout_marginBottom="20dp"
+        android:inputType="textCapWords"
+        android:fontFamily="sans-serif" />
+    
     <Button 
         android:id="@+id/account_submit"
         android:layout_weight="1" 

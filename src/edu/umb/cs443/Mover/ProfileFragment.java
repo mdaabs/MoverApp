@@ -6,17 +6,39 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class ProfileFragment extends Fragment {
+	
+	TextView name, zip, vehicle;
+	MoverDBAdapter adapter;
+	String user, first, last, sZip, sVehicle;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+		name = (TextView) view.findViewById(R.id.profile_name);
+		zip = (TextView) view.findViewById(R.id.profile_area);
+		vehicle = (TextView) view.findViewById(R.id.profile_vehicle);
+		adapter = new MoverDBAdapter(getActivity());
+		
+		adapter.open();
+		
+		user = LoginFragment.u;
+		
+		first = adapter.getFirstName(user);
+		last = adapter.getLastName(user);
+		sZip = adapter.getZip(user);
+		sVehicle = adapter.getVehicle(user);
+		
+		name.setText(first + " " + last);
+		zip.setText(sZip);
+		vehicle.setText(sVehicle);
+		
 		return view;
 	}
 	
